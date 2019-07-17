@@ -207,48 +207,6 @@ app.delete('/todos/:id/items/:idItems', (req, res) => {
         })
     })
 })
-//ลบไอเท็มไอดี โดย todos อื่นได้
-/* 
-1. เช็คว่า ไอดีที่รับมา มีอยู่ใน todos ไหม ?
-2. เช็คว่า ไอดีที่รับมา มีใน items  ไหม ?
-3.  ลบไอเท็มไอเท็ม ที่ todo_id = idItems  &&  id -> todo 
-
-*/
-// app.delete('/todos/:id/items/:idItems', (req, res) => {
-//     let id = req.params.id;
-//     let idItems = req.params.idItems;
-//     let sql = 'DELETE FROM items WHERE `todo_id`=? AND `id`=?';
-//     let sql2 = 'SELECT `id` FROM todos WHERE `id`=?';
-//     let sql3 = 'DELETE FROM `items` WHERE `id`=?';
-//     db.query(sql3, idItems, (error, results) => {
-//         if (error) {
-//             throw error;
-//         } else {
-//             if (JSON.stringify(results.affectedRows) == 0) {
-//                 res.send('400 Bad Request Data is null');
-//             } else {
-
-//                 db.query(sql2, id, (error, results) => {
-//                     if (error) {
-//                         throw error;
-//                     } else {
-//                         if (JSON.stringify(results[0]) == null) {
-//                             res.send('400 Bad Request Data is null');
-//                         } else {
-//                             db.query(sql, [id, idItems], (error, results) => {
-//                                 if (error) throw error;
-//                                 res.json(results);
-//                             })
-//                         }
-//                     }
-//                 })
-//             }
-//         }
-//     })
-// })
-
-
-
 app.listen(port, () => {
     console.log(`app listening in your port ${port}`);
 })
